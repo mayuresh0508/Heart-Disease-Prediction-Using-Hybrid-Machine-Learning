@@ -1,0 +1,210 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<!-- register -->
+
+<style>
+	/* Add this style to make the input box square */
+	.square-input {
+		border-width: 1px;
+		/* Adjust the border size as needed */
+		border-color: black;
+	}
+
+	.progress-container {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.progress-bar {
+		height: 20px;
+		background-color: #e0e0e0;
+		margin-bottom: 5px;
+	}
+
+	.progress-bar-filled {
+		height: 100%;
+		background-color: #4CAF50;
+	}
+
+	.image{
+		position: fixed;
+		z-index: -1;
+		height: 130vh;
+		/* width: 100vw; */
+		filter: blur(1.5px);
+
+	}
+
+	.white{
+		color: white;
+	}
+</style>
+
+<section class="logins py-5" >
+	<img class="image" src="https://private-user-images.githubusercontent.com/83937509/319870718-ae4a73cd-1c67-4809-beb9-f632edff1060.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTU2MjQ0NDUsIm5iZiI6MTcxNTYyNDE0NSwicGF0aCI6Ii84MzkzNzUwOS8zMTk4NzA3MTgtYWU0YTczY2QtMWM2Ny00ODA5LWJlYjktZjYzMmVkZmYxMDYwLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA1MTMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNTEzVDE4MTU0NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTM0NmY3ZDIzNmNmNTkyODg2YTkzNTA1YTY1NzVlZjE1MmM0MjE0MjhmYzFlY2I0ODM2MjMwOTA3MDY5YTA4MWUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.AgNrXsBQ13Vbmi0JGLt9bF4nBipu3jpKUuRTUYI8_Ps" alt="" srcset="">
+	<div class="container py-xl-5 py-lg-3" style="background-image: url('resources/ai-heart-tool-640x410px.jpg');">
+		<div class="title-section mb-md-5 mb-3">
+			<h6 class="w3ls-title-sub"></h6>
+			<h3 class="w3ls-title text-uppercase white font-weight-bold">Check Your Heart's Health</h3>
+			<hr />
+		</div>
+		<!-- <div class="img">
+				<img src="C:/Users/Mayuresh/Desktop/Heart Attack Detection Hub/Heart Attack Detection Hub/agedetect/static/images/h-image.png" height="50px" width="50px" alt="" srcset="">
+			</div> -->
+
+		
+		<div class="login px-sm-12" style="width:100%">
+
+			<form action="" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="form-group row">
+					<div class="col-md-3">
+						<label class="mb-2 white"
+							style="font-weight: bold; font-family: 'YourChosenFont', sans-serif; ">Age</label>
+						<input type="number" class="form-control square-input" style="border-radius: 7px;" min="0" max="110" name="age" required="" placeholder="0-100">
+					</div>
+					<div class="col-md-3">
+						<label class="mb-2 white"
+							style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Gender</label>
+						<select class="form-control square-input" style="cursor: pointer; border-radius: 7px;" name="sex"
+							required="">
+							<option value="0">Male</option>
+							<option value="1">Female</option>
+							<!-- <option value="1">Transgender</option> -->
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label class="mb-2 white" style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Chest
+							Pain Type</label>
+						<select class="form-control square-input " style="cursor: pointer; border-radius: 7px;" name="cp"
+							required="">
+							<option value="0">None</option>
+							<option value="1">Typical Angina</option>
+							<option value="2">Atypical Angina</option>
+							<option value="3">Non-Angina</option>
+						</select>
+					</div>
+
+					<div class="col-md-3">
+						<label class="mb-2 white"
+							style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Blood
+							Pressure</label>
+						<input type="number" class="form-control square-input " style="border-radius: 7px;" name="trestbps" required="" placeholder="80-120 mmHg">
+					</div>
+
+				</div>
+
+				<div class="form-group row mt-4">
+					<div class="col-md-3 white">
+						<label class="mb-2" style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Serum
+							Cholestrol</label>
+						<input type="number" class="form-control square-input " style="border-radius: 7px;" name="chole" required="" placeholder="120-240 mg/dL">
+					</div>
+					<div class="col-md-3">
+						<label class="mb-2 white"
+							style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Fasting Blood
+							Sugar</label>
+						<select class="form-control square-input " style="cursor: pointer; border-radius: 7px;" name="fbs"
+							required="">
+							<option value="0">
+								< 120 mg/dl </option>
+							<option value="1"> > 120 mg/dl</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label class="mb-2 white"
+							style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Resting
+							Electrocardiographic Result</label>
+						<select class="form-control square-input " style="cursor: pointer; border-radius: 7px;" name="restecg"
+							required="">
+							<option value="0">Normal</option>
+							<option value="1">Having ST-T wave abnormality</option>
+							<option value="2">Hypertrophy</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label class="mb-2 white"
+							style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Maximum Heart
+							Rate</label>
+						<input type="number" class="form-control square-input " style="border-radius: 7px;" name="thalach" required="" placeholder="60-80 bpm">
+					</div>
+
+
+				</div>
+
+
+				<div class="form-group row mt-4">
+
+					<div class="col-md-3">
+						<label class="mb-2 white"
+							style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Excercise Induced
+							Angina</label>
+						<select class="form-control square-input " style="cursor: pointer; border-radius: 7px;" name="exang"
+							required="">
+							<option value="0">No</option>
+							<option value="1">Yes</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label class="mb-2 white" style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">ST
+							Depression</label>
+						<input type="text" class="form-control square-input " style="border-radius: 7px;" min="0" max="0.5" name="old_peak" required="" placeholder="< 0.5">
+					</div>
+
+					<div class="col-md-3">
+						<label class="mb-2 white" style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Slope
+							of Peak Excercise ST Segment</label>
+						<select class="form-control square-input " style="cursor: pointer; border-radius: 7px;" name="slope"
+							required="">
+							<option value="0"> Upsloping </option>
+							<option value="1"> Flat</option>
+							<option value="2"> Down Sloping</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label class="mb-2 white"
+							style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">Thalium Scan
+							Results</label>
+						<select class="form-control square-input " style="cursor: pointer; border-radius: 7px;" name="thal"
+							required="">
+							<option value="0">Normal</option>
+							<option value="1">Fixed Defect</option>
+							<option value="2">Reversible Defect</option>
+							<option value="3">Indeterminate or Equivocal</option>
+						</select>
+					</div>
+
+
+
+
+				</div>
+				<div class="form-group row mt-4">
+
+
+
+					<div class="col-md-3">
+						<label class="mb-2 white" style="font-weight: bold; font-family: 'YourChosenFont', sans-serif;">No. of
+							Major Vessels Colored by Flourosopy</label>
+						<select class="form-control square-input " style="cursor: pointer; border-radius: 7px;" name="ca"
+							required="">
+							<option value="0">None</option>
+							<option value="1">One</option>
+							<option value="2">Two</option>
+							<option value="3">Three</option>
+						</select>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-primary submit mt-4">Send Heart data</button>
+			</form>
+		</div>
+	</div>
+</section>
+
+
+
+
+<!-- //register -->
+
+{% endblock %}

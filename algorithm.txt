@@ -1,0 +1,15 @@
+how to start project
+
+step1: open vscode
+
+step2: select new terminal
+
+step3: venv\Scripts\activate     
+
+step4: python manage.py runserver
+
+step5: http://127.0.0.1:8000/
+
+
+
+
